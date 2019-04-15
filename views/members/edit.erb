@@ -1,0 +1,14 @@
+<form action="/members/<%=@member.id%>/update" method="post">
+  <label for="first-name">First Name:</label>
+  <input type="text" name="first_name" id="first-name" value="<%=@member.first_name%>">
+  <label for="last-name">Last Name:</label>
+  <input type="text" name="last_name" id="last-name" value="<%=@member.last_name%>">
+  <label for="join-date">Join Date:</label>
+  <input type="text" name="join_date" id="join-date" value="<%=@member.join_date%>">
+  <label for="membership-type">Membership Type:</label>
+  <select class="" name="membership_type" id="membership-type">
+    <option <%= "selected" if @member.membership_type == 'Gym Only' %> value="Gym Only">Gym Only</option>
+    <option <%= "selected" if @member.membership_type == 'Gym & Classes' %> value="Gym & Classes">Gym & Classes</option>
+  </select>
+  <button type="sumbit" name="">Update Member Details</button>
+</form>

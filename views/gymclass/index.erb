@@ -1,0 +1,15 @@
+<div class="side_nav">
+  <p><a href="/classes/all">View All Classes</a></p>
+  <p><a href="#">Find a Class</a></p>
+  <p><a href="/classes/new">Add a New Class</a></p>
+</div>
+
+
+<h3>All Classes</h3>
+<% for gymclass in @gymclasses do %>
+  <p>Name: <%= gymclass.name %></p>
+  <p>Number of members taken class: <%= gymclass.list_members.count%></p>
+  <p><a href="/classes/<%=gymclass.id%>">More Details</a></p>
+  <p><a href="/bookings/new">Book A Member Into Class</a></p>
+  <hr/>
+<% end %>

@@ -1,0 +1,29 @@
+<div class="side_nav">
+  <p><a href="/members/all">View All Members</a></p>
+  <p><a href="#">Find a Member</a></p>
+  <p><a href="/members/new">Add a New Member</a></p>
+</div>
+
+<hr/>
+
+<h4><%=@member.first_name%> <%=@member.last_name%></h4>
+
+<p>Member number: <%=@member.id%></p>
+<p>Member since: <%=@member.join_date%></p>
+<p>Membership type: <%=@member.membership_type%></p>
+<% if @member.membership_type != 'Gym Only'%>
+  
+  <p>Recently booked clases:</p>
+  <% @member.find_bookings.each do |gymclass| %>
+  <ul>
+    <li><%=gymclass.name%></li>
+  </ul>
+  <% end %>
+<% end %>
+<hr/>
+
+<p><a href="/members/<%=@member.id%>/update">Update Member Details</a></p>
+
+<form action="/members/<%=@member.id%>" method="post">
+  <button type="submit" name="Delete">Remove This Member</button>
+</form>

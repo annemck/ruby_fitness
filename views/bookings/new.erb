@@ -1,0 +1,21 @@
+<form class="" action="/bookings/new" method="post">
+  
+  <label for="member-name">Member Name: </label>
+  <select name="member_id" id="member-name">
+    <% members = Member.list_all()%>
+    <% for member in members do %>
+    <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
+    <% end %>
+  </select>
+  
+  <label for="class">Class: </label>
+  <select name="class_id" id="class">
+    <% gymclasses = GymClass.list_all() %>
+    <% for gymclass in gymclasses do %>
+    <option value="<%=gymclass.id%>"><%=gymclass.name%></option>
+    <% end %>
+  </select>
+  
+  <button type="submit" name="book">Book</button>
+  
+</form>

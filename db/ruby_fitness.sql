@@ -5,7 +5,7 @@ DROP TABLE images;
 
 
 CREATE TABLE members (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   first_name VARCHAR,
   last_name VARCHAR,
   join_date VARCHAR,
@@ -13,17 +13,17 @@ CREATE TABLE members (
 );
 
 CREATE TABLE classes (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR
 );
 
 CREATE TABLE bookings (
-  id INT PRIMARY KEY,
-  member_id INT REFERENCES members(id),
-  class_id INT REFERENCES classes(id)
+  id SERIAL PRIMARY KEY,
+  member_id INT REFERENCES members(id) ON DELETE CASCADE,
+  class_id INT REFERENCES classes(id) ON DELETE CASCADE
 );
 
 CREATE TABLE images (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   link VARCHAR
 );

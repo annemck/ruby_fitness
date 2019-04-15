@@ -1,0 +1,19 @@
+<div class="side_nav">
+  <p><a href="/bookings/all">View All Bookings</a></p>
+  <p><a href="#">Find a Booking</a></p>
+</div>
+
+<hr/>
+
+<p>Member: <%=@member.first_name%> <%=@member.last_name%> </p>
+<p>Class: <%=@gymclass.name%> </p>
+<p>Times Class Taken: <%=@member.times_class_taken(@gymclass)%></p>
+
+<hr/>
+
+
+<p><a href="/bookings/<%=@booking.id%>/update">Edit Booking</a></p>
+
+<form action="/bookings/<%=@booking.id%>/delete" method="post">
+  <button type="submit" name="Delete">Remove This Booking</button>
+</form>

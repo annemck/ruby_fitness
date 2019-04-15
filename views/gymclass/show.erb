@@ -1,0 +1,29 @@
+<div class="side_nav">
+  <p><a href="/classes/all">View All Classes</a></p>
+  <p><a href="#">Find a Class</a></p>
+  <p><a href="/classes/new">Add a New Class</a></p>
+</div>
+
+<hr/>
+
+<h4><%=@gymclass.name%></h4>
+  
+  <p>Members Taken Class:</p>
+  <% @gymclass.list_members.each do |member| %>
+  <ul>
+    <li><%=member.first_name%> <%=member.last_name%></li>
+    <ul>
+      <li>Times Class Taken: <%=member.times_class_taken(@gymclass)%></li>
+    </ul>
+  </ul>
+  <% end %>
+<hr/>
+
+
+<p><a href="/bookigns/new">Book a Member Into Class</a></p>
+
+<p><a href="/classes/<%=@gymclass.id%>/update">Update Class Details</a></p>
+
+<form action="/classes/<%=@gymclass.id%>/delete" method="post">
+  <button type="submit" name="Delete">Remove This Class</button>
+</form>

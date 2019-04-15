@@ -1,0 +1,19 @@
+<form class="" action="/bookings/<%=@booking.id%>/update" method="post">
+  
+  <label hidden for="member-id">Member Number: </label>
+  <input hidden ="number" name="member_id" id="member-id" value="<%=@member.id%>">
+  
+  <label for="name">Member Name: </label>
+  <input select disabled type="text" id="name" value="<%=@member.first_name%> <%=@member.last_name%>">
+  
+  <label for="class">Class: </label>
+  <select class="" name="class_id" id="class">
+    <% gymclasses = GymClass.list_all() %>
+    <% for gymclass in gymclasses do %>
+    <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%></option>
+    <% end %>
+  </select>
+  
+  <button type="submit" name="update">Change Booking</button>
+  
+</form>

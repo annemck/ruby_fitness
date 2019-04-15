@@ -1,0 +1,16 @@
+<div class="side_nav">
+  <p><a href="/bookings/all">View All Class Bookings</a></p>
+  <p><a href="#">Find a Booking</a></p>
+</div>
+
+
+<h3>All Bookings</h3>
+
+<hr/>
+
+<% for booking in @bookings do %>
+    <p>Member: <%=booking.find_single_member.first_name%> <%=booking.find_single_member.last_name%></p>
+    <p>Class Booked: <%=booking.find_class.name%></p>
+    <p><a href="/bookings/<%=booking.id%>">View Booking Details</a></p>
+    <hr/>
+<% end %>
