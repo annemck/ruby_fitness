@@ -1,29 +1,33 @@
-<div class="side_nav">
-  <p><a href="/classes/all">View All Classes</a></p>
-  <p><a href="#">Find a Class</a></p>
-  <p><a href="/classes/new">Add a New Class</a></p>
-</div>
-
-<hr/>
-
-<h4><%=@gymclass.name%></h4>
+<div class="main">
   
-  <p>Members Taken Class:</p>
-  <% @gymclass.list_members.each do |member| %>
-  <ul>
-    <li><%=member.first_name%> <%=member.last_name%></li>
+  <div class="side_nav">
+    <p><a href="/classes/all">View All Classes</a></p>
+    <p><a href="#">Find a Class</a></p>
+    <p><a href="/classes/new">Add a New Class</a></p>
+  </div>
+  
+  
+  <div class="all_info">
+    
+    <h4><%=@gymclass.name%></h4>
+    
+    <p>Members Taken Class:</p>
+    <% @gymclass.list_members.each do |member| %>
     <ul>
-      <li>Times Class Taken: <%=member.times_class_taken(@gymclass)%></li>
+      <li><%=member.first_name%> <%=member.last_name%>  -  has taken class <%=member.times_class_taken(@gymclass)%> times</li>
     </ul>
-  </ul>
-  <% end %>
-<hr/>
-
-
-<p><a href="/bookigns/new">Book a Member Into Class</a></p>
-
-<p><a href="/classes/<%=@gymclass.id%>/update">Update Class Details</a></p>
-
-<form action="/classes/<%=@gymclass.id%>/delete" method="post">
-  <button type="submit" name="Delete">Remove This Class</button>
-</form>
+    <% end %>
+    <hr/>
+    
+    
+    <p><a href="/bookings/new">Book a Member Into Class</a></p>
+    
+    <p><a href="/classes/<%=@gymclass.id%>/update">Update Class Details</a></p>
+    
+    <form action="/classes/<%=@gymclass.id%>/delete" method="post">
+      <button type="submit" name="Delete">Remove This Class</button>
+    </form>
+    
+  </div>
+  
+</div>

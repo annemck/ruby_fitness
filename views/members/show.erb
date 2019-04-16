@@ -1,10 +1,13 @@
+<div class="main">
+
 <div class="side_nav">
   <p><a href="/members/all">View All Members</a></p>
   <p><a href="#">Find a Member</a></p>
   <p><a href="/members/new">Add a New Member</a></p>
 </div>
 
-<hr/>
+
+<div class="all_info">
 
 <h4><%=@member.first_name%> <%=@member.last_name%></h4>
 
@@ -27,3 +30,7 @@
 <form action="/members/<%=@member.id%>" method="post">
   <button type="submit" name="Delete">Remove This Member</button>
 </form>
+
+</div>
+
+</div>

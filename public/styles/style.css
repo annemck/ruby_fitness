@@ -3,8 +3,9 @@ header {
   background-image: url('/images/banner_image.jpg');
   background-repeat: no-repeat;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 3em;
+  height: 180px;
 }
 
 h1 {
@@ -63,8 +64,24 @@ body {
 }
 
 .all_info {
-  margin-left: 20em;
+  margin-left: 18em;
   margin-right: 17em;
   margin-top: 5em;
+  justify-content: center;
+}
+
+.big_form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+  margin-left: 20em;
+  margin-right: 20em;
+}
+
+ol {
+  list-style: none;
+}
+
+.site_info {
   justify-content: center;
 }
