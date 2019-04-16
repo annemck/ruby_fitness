@@ -1,15 +1,21 @@
-<div class="side_nav">
-  <p><a href="/members/all">View All Members</a></p>
-  <p><a href="#">Find a Member</a></p>
-  <p><a href="/bookings/new">Book a Member Into Class</a></p>
-  <p><a href="/members/new">Add a New Member</a></p>
+<div class="main">
+  <div class="side_nav">
+    <p><a href="/members/all">View All Members</a></p>
+    <p><a href="#">Find a Member</a></p>
+    <p><a href="/bookings/new">Book a Member Into Class</a></p>
+    <p><a href="/members/new">Add a New Member</a></p>
+  </div>
+  
+  
+  <div class="all_info">
+    
+    <h3>All Members</h3>
+    <% for member in @members do %>
+    <p>Name: <%= member.first_name %> <%= member.last_name %></p>
+    <p>Joining Date: <%= member.join_date %></p>
+    <p><a href="/members/<%=member.id%>">More Details</a></p>
+    <hr/>
+    <% end %>
+    
+  </div>
 </div>
-
-
-<h3>All Members</h3>
-<% for member in @members do %>
-  <p>Name: <%= member.first_name %> <%= member.last_name %></p>
-  <p>Joining Date: <%= member.join_date %></p>
-  <p><a href="/members/<%=member.id%>">More Details</a></p>
-  <hr/>
-<% end %>

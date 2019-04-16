@@ -1,3 +1,70 @@
+header {
+  display: flex;
+  background-image: url('/images/banner_image.jpg');
+  background-repeat: no-repeat;
+  justify-content: center;
+  width: 100%;
+  padding: 3em;
+}
+
+h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  color: rgb(229, 231, 234);
+}
+
 body {
-  background-color: rgb(94, 132, 75);
+  font-family: Verdana, Geneva, sans-serif;
+  background-color: rgb(225, 232, 222);
+}
+
+.head_nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main {
+  display: flex;
+}
+
+.statement {
+  margin-left: 17em;
+  margin-right: 17em;
+  margin-top: 7em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quick_member {
+  margin-left: 1em;
+  margin-top: 3em;
+  min-width: 10em;
+  flex-direction: column;
+  align-items: flex-start;
+  order: -1;
+}
+
+.quick_class {
+  margin-right: 1em;
+  margin-top: 3em;
+  min-width: 10em;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.side_nav {
+  margin-left: 1em;
+  margin-top: 5em;
+  min-width: 10em;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.all_info {
+  margin-left: 20em;
+  margin-right: 17em;
+  margin-top: 5em;
+  justify-content: center;
 }

@@ -4,13 +4,17 @@
 </div>
 
 
-<h3>All Bookings</h3>
+<div class="main_info">
+  
+  <h3>All Bookings</h3>
 
-<hr/>
+  <hr/>
 
-<% for booking in @bookings do %>
-    <p>Member: <%=booking.find_single_member.first_name%> <%=booking.find_single_member.last_name%></p>
-    <p>Class Booked: <%=booking.find_class.name%></p>
-    <p><a href="/bookings/<%=booking.id%>">View Booking Details</a></p>
-    <hr/>
-<% end %>
+  <% for booking in @bookings do %>
+      <p>Member: <%=booking.find_single_member.first_name%> <%=booking.find_single_member.last_name%></p>
+      <p>Class Booked: <%=booking.find_class.name%></p>
+      <p><a href="/bookings/<%=booking.id%>">View Booking Details</a></p>
+      <hr/>
+  <% end %>
+  
+</div>
