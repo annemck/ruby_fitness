@@ -11,6 +11,9 @@
     
     <h4><%=@gymclass.name%></h4>
     
+    <p>Day: <%=@gymclass.day%></p>
+    <p>Start Time: <%=@gymclass.start_time%></p>
+    <p>Class Duration: <%=@gymclass.duration%></p>
     <p>Members Taken Class:</p>
     <% @gymclass.list_members.each do |member| %>
     <ul>

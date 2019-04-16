@@ -19,7 +19,7 @@
   <p>Recently booked clases:</p>
   <% @member.find_bookings.each do |gymclass| %>
   <ul>
-    <li><%=gymclass.name%></li>
+    <li><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></li>
   </ul>
   <% end %>
 <% end %>

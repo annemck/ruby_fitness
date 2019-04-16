@@ -10,9 +10,11 @@
   <select class="" name="class_id" id="class">
     <% gymclasses = GymClass.list_all() %>
     <% for gymclass in gymclasses do %>
-    <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%></option>
+    <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
     <% end %>
   </select>
+  
+  <br>
   
   <button type="submit" name="update">Change Booking</button>
   

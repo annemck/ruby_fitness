@@ -10,6 +10,7 @@
     <h3>All Classes</h3>
     <% for gymclass in @gymclasses do %>
     <p>Name: <%= gymclass.name %></p>
+    <p>Day & Time: <%= gymclass.day %>, <%= gymclass.start_time %>
     <p>Number of members taken class: <%= gymclass.list_members.count%></p>
     <p><a href="/classes/<%=gymclass.id%>">More Details</a></p>
     <p><a href="/bookings/new">Book A Member Into Class</a></p>

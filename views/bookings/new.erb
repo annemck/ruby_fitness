@@ -1,10 +1,12 @@
-  <form class="big_form" action="/bookings/new" method="post">
+<form class="big_form" action="/bookings/new" method="post">
   
   <label for="member-name">Member Name: </label>
   <select name="member_id" id="member-name">
     <% members = Member.list_all()%>
     <% for member in members do %>
-    <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
+      <% if member.membership_type == 'Gym & Classes' %>
+      <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
+      <% end %>
     <% end %>
   </select>
   
@@ -14,7 +16,7 @@
   <select name="class_id" id="class">
     <% gymclasses = GymClass.list_all() %>
     <% for gymclass in gymclasses do %>
-    <option value="<%=gymclass.id%>"><%=gymclass.name%></option>
+    <option value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
     <% end %>
   </select>
   

@@ -13,7 +13,10 @@ CREATE TABLE members (
 
 CREATE TABLE classes (
   id SERIAL PRIMARY KEY,
-  name VARCHAR
+  name VARCHAR,
+  day VARCHAR,
+  start_time VARCHAR,
+  duration VARCHAR
 );
 
 CREATE TABLE bookings (
