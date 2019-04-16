@@ -1,12 +1,17 @@
+<div class="main">
+
 <div class="side_nav">
+  <p><a href="/classes/all">View All Classes</a></p>
   <p><a href="/bookings/all">View All Bookings</a></p>
-  <p><a href="#">Find a Booking</a></p>
+  <p><a href="/classes/new">Add a New Class</a></p>
 </div>
 
-<hr/>
 
+
+<div class="all_info">
 <p>Member: <%=@member.first_name%> <%=@member.last_name%> </p>
 <p>Class: <%=@gymclass.name%> </p>
+<p>Day and Time: <%=@gymclass.day%>, <%=@gymclass.start_time%></p>
 <p>Times Class Taken: <%=@member.times_class_taken(@gymclass)%></p>
 
 <hr/>
@@ -17,3 +22,7 @@
 <form action="/bookings/<%=@booking.id%>/delete" method="post">
   <button type="submit" name="Delete">Remove This Booking</button>
 </form>
+
+</div>
+
+</div>

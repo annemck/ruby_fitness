@@ -61,10 +61,10 @@ class Member
   end
   
   def find_all_bookings()
-    sql = "SELECT * FROM classes INNER JOIN bookings ON classes.id = bookings.class_id WHERE bookings.member_id = $1"
+    sql = "SELECT * FROM bookings WHERE member_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map{ |gymclass| GymClass.new(gymclass) }
+    return results.map{ |booking| Booking.new(booking) }
   end
   
   def times_class_taken(gymclass)

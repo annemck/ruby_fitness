@@ -2,7 +2,7 @@
   
   <div class="side_nav">
     <p><a href="/classes/all">View All Classes</a></p>
-    <p><a href="#">Find a Class</a></p>
+    <p><a href="/bookings/all">View All Bookings</a></p>
     <p><a href="/classes/new">Add a New Class</a></p>
   </div>
   
@@ -14,7 +14,7 @@
     <p>Day: <%=@gymclass.day%></p>
     <p>Start Time: <%=@gymclass.start_time%></p>
     <p>Class Duration: <%=@gymclass.duration%></p>
-    <p>Members Taken Class:</p>
+    <p>Members Taking Class:</p>
     <% @gymclass.list_members.each do |member| %>
     <ul>
       <li><%=member.first_name%> <%=member.last_name%>  -  has taken class <%=member.times_class_taken(@gymclass)%> times</li>
@@ -23,7 +23,7 @@
     <hr/>
     
     
-    <p><a href="/bookings/new">Book a Member Into Class</a></p>
+    <p><a href="/bookings/new/<%=@gymclass.id%>">Book a Member Into Class</a></p>
     
     <p><a href="/classes/<%=@gymclass.id%>/update">Update Class Details</a></p>
     

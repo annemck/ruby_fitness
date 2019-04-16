@@ -1,10 +1,14 @@
-<form class="" action="/bookings/<%=@booking.id%>/update" method="post">
+<form class="big_form" action="/bookings/<%=@booking.id%>/update" method="post">
   
   <label hidden for="member-id">Member Number: </label>
   <input hidden ="number" name="member_id" id="member-id" value="<%=@member.id%>">
   
+  <br>
+  
   <label for="name">Member Name: </label>
   <input select disabled type="text" id="name" value="<%=@member.first_name%> <%=@member.last_name%>">
+  
+  <br>
   
   <label for="class">Class: </label>
   <select class="" name="class_id" id="class">

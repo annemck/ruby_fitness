@@ -4,9 +4,9 @@
   <select name="member_id" id="member-name">
     <% members = Member.list_all()%>
     <% for member in members do %>
-      <% if member.membership_type == 'Gym & Classes' %>
-      <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
-      <% end %>
+    <% if member.membership_type == 'Gym & Classes' %>
+    <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
+    <% end %>
     <% end %>
   </select>
   
@@ -16,13 +16,19 @@
   <select name="class_id" id="class">
     <% gymclasses = GymClass.list_all() %>
     <% for gymclass in gymclasses do %>
-    <option value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
+    <option
+    <% if @viewed_class != nil %>
+      <%= "selected" if @viewed_class.id == gymclass.id %>
     <% end %>
-  </select>
-  
-  <br>
-  <br>
-  
-  <button type="submit" name="book">Book</button>
-  
+    value="<%=gymclass.id%>">
+    <%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%>
+  </option>
+  <% end %>
+</select>
+
+<br>
+<br>
+
+<button type="submit" name="book">Book</button>
+
 </form>

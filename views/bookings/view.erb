@@ -1,0 +1,23 @@
+<div class="main">
+  
+  <div class="side_nav">
+    <p><a href="/members/all">View All Members</a></p>
+    <p><a href="/bookings/new">Book a Member Into Class</a></p>
+    <p><a href="/members/new">Add a New Member</a></p>
+  </div>
+  
+  <div class="all_info">
+    
+    <h3><%=@member.first_name%> <%=@member.last_name%> Bookings</h3>
+    
+    <% bookings = @member.find_all_bookings() %>
+    <% for booking in bookings do %>
+    <% gymclass = booking.find_class %>
+    <p>Class Name: <%=gymclass.name%></p>
+    <p>Day & Time: <%=gymclass.day%>, <%=gymclass.start_time%></p>
+    <p><a href="/bookings/<%=booking.id%>/update">Edit Booking</a></p>
+    <hr/>
+    <% end %>
+    
+  </div>
+</div>

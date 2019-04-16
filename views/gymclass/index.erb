@@ -1,6 +1,7 @@
 <div class="main">
   <div class="side_nav">
     <p><a href="/classes/all">View All Classes</a></p>
+    <p><a href="/bookings/all">View All Bookings</a></p>
     <p><a href="/classes/new">Add a New Class</a></p>
   </div>
   
@@ -13,7 +14,7 @@
     <p>Day & Time: <%= gymclass.day %>, <%= gymclass.start_time %>
     <p>Number of members taken class: <%= gymclass.list_members.count%></p>
     <p><a href="/classes/<%=gymclass.id%>">More Details</a></p>
-    <p><a href="/bookings/new">Book A Member Into Class</a></p>
+    <p><a href="/bookings/new/<%=gymclass.id%>">Book A Member Into Class</a></p>
     <hr/>
     <% end %>
     

@@ -15,6 +15,16 @@ get '/bookings/new' do
   erb(:"bookings/new")
 end
 
+get '/bookings/new/:id' do
+  @viewed_class = GymClass.view(params[:id].to_i)
+  erb(:"bookings/new")
+end
+
+get '/bookings/member/:id' do
+  @member = Member.view(params[:id].to_i)
+  erb(:"bookings/view")
+end
+
 get '/bookings/:id/update' do
   @booking = Booking.view(params[:id].to_i)
   @member = @booking.find_single_member()

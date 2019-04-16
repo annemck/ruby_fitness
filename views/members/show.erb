@@ -2,7 +2,6 @@
 
 <div class="side_nav">
   <p><a href="/members/all">View All Members</a></p>
-  <p><a href="#">Find a Member</a></p>
   <p><a href="/members/new">Add a New Member</a></p>
 </div>
 
@@ -24,6 +23,8 @@
   <% end %>
 <% end %>
 <hr/>
+
+<p><a href="/bookings/member/<%=@member.id%>">View Member Bookings</a></p>
 
 <p><a href="/members/<%=@member.id%>/update">Update Member Details</a></p>
 
