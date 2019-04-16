@@ -82,6 +82,11 @@ ol {
   list-style: none;
 }
 
+.sub-list {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 .site_info {
-  justify-content: center;
+  margin-left: 8em;
 }
