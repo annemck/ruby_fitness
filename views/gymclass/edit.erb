@@ -19,5 +19,12 @@
   
   <br>
   
+  <label for="max-capacity">Maximum Capacity: </label>
+  <input type="number" name="max_capacity" id="max-capacity" value="<%=@gymclass.max_capacity%>">
+  
+  <input hidden type="number" name="booked_spaces" value="<%=@gymclass.booked_spaces%>">
+  
+  <br>
+  
   <button type="submit" name="update">Update Class Details</button>
 </form>

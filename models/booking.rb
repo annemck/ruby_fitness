@@ -47,8 +47,8 @@ class Booking
   end
   
   def find_class()
-    sql = "SELECT classes.* FROM classes INNER JOIN bookings ON classes.id = bookings.class_id WHERE bookings.id = $1"
-    values = [@id]
+    sql = "SELECT classes.* FROM classes WHERE id = $1"
+    values = [@class_id]
     gymclass = SqlRunner.run(sql, values)[0]
     return GymClass.new(gymclass)
   end

@@ -34,7 +34,7 @@ post '/members/:id/update' do
   redirect to("/members/#{member.id}")
 end
 
-post 'members/:id' do
+post '/members/:id' do
   member = Member.view(params[:id].to_i)
   member.delete()
   redirect to('/members/all')

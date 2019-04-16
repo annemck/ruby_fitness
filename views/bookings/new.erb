@@ -16,13 +16,15 @@
   <select name="class_id" id="class">
     <% gymclasses = GymClass.list_all() %>
     <% for gymclass in gymclasses do %>
-    <option
-    <% if @viewed_class != nil %>
-      <%= "selected" if @viewed_class.id == gymclass.id %>
-    <% end %>
-    value="<%=gymclass.id%>">
-    <%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%>
-  </option>
+      <% if gymclass.space_left != 0 %>
+      <option
+        <% if @viewed_class != nil %>
+          <%= "selected" if @viewed_class.id == gymclass.id %>
+        <% end %>
+        value="<%=gymclass.id%>">
+        <%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%>
+      </option>
+      <% end %>
   <% end %>
 </select>
 

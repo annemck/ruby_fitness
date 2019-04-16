@@ -16,7 +16,9 @@ CREATE TABLE classes (
   name VARCHAR,
   day VARCHAR,
   start_time VARCHAR,
-  duration VARCHAR
+  duration VARCHAR,
+  max_capacity INT,
+  booked_spaces INT DEFAULT 0
 );
 
 CREATE TABLE bookings (

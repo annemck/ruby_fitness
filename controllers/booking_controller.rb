@@ -41,17 +41,30 @@ end
 post '/bookings/new' do
   booking = Booking.new(params)
   booking.save()
+  gymclass = booking.find_class()
+  gymclass.increase_booked_spaces()
+  gymclass.update()
   redirect to("/bookings/#{booking.id}")
 end
 
 post '/bookings/:id/update' do
+  old_booking = Booking.view(params[:id])
+  old_class = old_booking.find_class()
+  old_class.decrease_booked_spaces()
+  old_class.update()
   booking = Booking.new(params)
   booking.update()
+  gymclass = booking.find_class()
+  gymclass.increase_booked_spaces()
+  gymclass.update()
   redirect to("/bookings/#{booking.id}")
 end
 
 post '/bookings/:id/delete' do
   booking = Booking.view(params[:id].to_i)
   booking.delete()
+  gymclass = booking.find_class()
+  gymclass.decrease_booked_spaces()
+  gymclass.update()
   redirect to("/bookings/all")
 end

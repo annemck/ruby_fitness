@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class GymClass
   
-  attr_reader :id, :name, :day, :start_time, :duration
+  attr_reader :id, :name, :day, :start_time, :duration, :max_capacity, :booked_spaces
   
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -10,11 +10,13 @@ class GymClass
     @day = options['day']
     @start_time = options['start_time']
     @duration = options['duration']
+    @max_capacity = options['max_capacity'].to_i
+    @booked_spaces = options['booked_spaces'].to_i if options['booked_spaces']
   end
   
   def save()
-    sql = "INSERT INTO classes (name, day, start_time, duration) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@name, @day, @start_time, @duration]
+    sql = "INSERT INTO classes (name, day, start_time, duration, max_capacity, booked_spaces) VALUES ($1, $2, $3, $4, $5, 0) RETURNING id"
+    values = [@name, @day, @start_time, @duration, @max_capacity]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
   
@@ -32,8 +34,8 @@ class GymClass
   end
   
   def update()
-    sql = "UPDATE classes SET (name, day, start_time, duration) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@name, @day, @start_time, @duration, @id]
+    sql = "UPDATE classes SET (name, day, start_time, duration, max_capacity, booked_spaces) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values = [@name, @day, @start_time, @duration, @max_capacity, @booked_spaces, @id]
     SqlRunner.run(sql, values)
   end
   
@@ -53,6 +55,19 @@ class GymClass
     values = [@id]
     results = SqlRunner.run(sql, values).uniq
     return results.map{ |member| Member.new(member) }
+  end
+  
+  def increase_booked_spaces()
+    @booked_spaces += 1
+  end
+  
+  def space_left()
+    value = @max_capacity - @booked_spaces
+    return value
+  end
+  
+  def decrease_booked_spaces()
+    @booked_spaces -= 1
   end
   
 end

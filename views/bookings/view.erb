@@ -16,6 +16,11 @@
     <p>Class Name: <%=gymclass.name%></p>
     <p>Day & Time: <%=gymclass.day%>, <%=gymclass.start_time%></p>
     <p><a href="/bookings/<%=booking.id%>/update">Edit Booking</a></p>
+
+    <form action="/bookings/<%=booking.id%>/delete" method="post">
+      <button type="submit" name="Delete">Remove This Booking</button>
+    </form>
+    
     <hr/>
     <% end %>
     
