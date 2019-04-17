@@ -45,5 +45,5 @@ booking5.save()
 member3 = Member.new({'first_name' => 'Ross', 'last_name' => 'Geller', 'join_date' => '01/01/2019', 'membership_type' => 'Gym & Classes'})
 member3.save()
 
-booking6 = Booking.new({'member_id' => member3.id, 'class_id' => gymclass1.id})
+booking6 = Booking.new({'member_id' => member3.id, 'class_id' => gymclass3.id})
 booking6.save()
