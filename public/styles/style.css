@@ -82,9 +82,14 @@ ol {
   list-style: none;
 }
 
-.sub-list {
+.sub_list {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.double_sub_list {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 .site_info {
