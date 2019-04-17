@@ -3,7 +3,7 @@ require_relative('../models/gymclass.rb')
 require_relative('../models/member.rb')
 require('pry')
 
-member1 = Member.new({'first_name' => 'Joe', 'last_name' => 'Fields', 'join_date' => '23/09/2018', 'membership_type' => 'Gym & Classes'})
+member1 = Member.new({'first_name' => 'Joe', 'last_name' => 'Fields', 'join_date' => '23/09/2018', 'membership_type' => 'Premium Membership'})
 member1.save()
 
 member2 = Member.new({'first_name' => 'Rachel', 'last_name' => 'Green', 'join_date' => '03/01/2017', 'membership_type' => 'Gym Only'})
