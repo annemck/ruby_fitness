@@ -70,4 +70,16 @@ class GymClass
     @booked_spaces -= 1
   end
   
+  def self.off_peak_classes_id()
+    sql = "SELECT classes.id FROM classes WHERE start_time > '09:00' AND start_time < '17:00' OR start_time < '07:00' OR start_time > '20:00'"
+    results = SqlRunner.run(sql)
+    return results.values.map{ |result| result }.flatten!
+  end
+  
+  def self.off_peak_classes()
+    sql = "SELECT * FROM classes WHERE start_time > '09:00' AND start_time < '17:00' OR start_time < '07:00' OR start_time > '20:00'"
+    results = SqlRunner.run(sql)
+    return results.map{ |gymclass| GymClass.new(gymclass) }
+  end
+  
 end

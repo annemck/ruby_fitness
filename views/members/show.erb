@@ -24,7 +24,9 @@
 <% end %>
 <hr/>
 
-<p><a href="/bookings/member/<%=@member.id%>">View Member Bookings</a></p>
+<% if @member.membership_type != 'Gym Only'%>
+  <p><a href="/bookings/member/<%=@member.id%>">View Member Bookings</a></p>
+<% end %>
 
 <p><a href="/members/<%=@member.id%>/update">Update Member Details</a></p>
 

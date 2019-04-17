@@ -1,36 +1,36 @@
 <form class="big_form" action="/bookings/new" method="post">
   
+  
   <label for="member-name">Member Name: </label>
-  <select name="member_id" id="member-name">
-    <% members = Member.list_all()%>
+  
+  
+  <% if GymClass.off_peak_classes_id.include?(@viewed_class.id.to_s) %>
+  <select class="" name="member_id" id="member-name">
+    <% members = Member.all_class_users() %>
     <% for member in members do %>
-    <% if member.membership_type == 'Gym & Classes' %>
     <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
     <% end %>
+  </select>
+  <% else %>
+  <select class="" name="member_id" id="member-name">
+    <% members = Member.premium_members() %>
+    <% for member in members do %>
+    <option value="<%=member.id%>"><%=member.first_name%> <%=member.last_name%></option>
     <% end %>
   </select>
+  <% end %>
   
   <br>
   
-  <label for="class">Class: </label>
-  <select name="class_id" id="class">
-    <% gymclasses = GymClass.list_all() %>
-    <% for gymclass in gymclasses do %>
-      <% if gymclass.space_left != 0 %>
-      <option
-        <% if @viewed_class != nil %>
-          <%= "selected" if @viewed_class.id == gymclass.id %>
-        <% end %>
-        value="<%=gymclass.id%>">
-        <%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%>
-      </option>
-      <% end %>
-  <% end %>
-</select>
-
-<br>
-<br>
-
-<button type="submit" name="book">Book</button>
-
+  <label for="gymclass">Class: </label>
+  <select class="" name="class_id">
+    <option value="<%=@viewed_class.id%>"><%=@viewed_class.name%>, <%=@viewed_class.day%> at <%=@viewed_class.start_time%></option>
+  </select>
+  
+  <br>
+  <br>
+  
+  <button type="submit" name="book">Book</button>
+  
+  
 </form>

@@ -15,7 +15,7 @@ CREATE TABLE classes (
   id SERIAL PRIMARY KEY,
   name VARCHAR,
   day VARCHAR,
-  start_time VARCHAR,
+  start_time TIME(0),
   duration VARCHAR,
   max_capacity INT,
   booked_spaces INT DEFAULT 0

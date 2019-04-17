@@ -11,14 +11,25 @@
   <br>
   
   <label for="class">Class: </label>
-  <select class="" name="class_id" id="class">
+  <% if @member.membership_type == 'Premium Membership' %>
+    <select class="" name="class_id" id="class">
     <% gymclasses = GymClass.list_all() %>
     <% for gymclass in gymclasses do %>
-    <% if gymclass.space_left != 0 %>
-    <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
+      <% if gymclass.space_left != 0 %>
+      <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
+      <% end %>
     <% end %>
+    </select>
+    <% elsif @member.membership_type == 'Gym & Classes' %>
+    <select class="" name="class_id" id="class">
+    <% gymclasses = GymClass.off_peak_classes() %>
+    <% for gymclass in gymclasses do %>
+      <% if gymclass.space_left != 0 %>
+      <option  <%= "selected" if gymclass.id == @booking.class_id %> value="<%=gymclass.id%>"><%=gymclass.name%>, <%=gymclass.day%> at <%=gymclass.start_time%></option>
+      <% end %>
     <% end %>
-  </select>
+    </select>
+  <% end %>
   
   <br>
   

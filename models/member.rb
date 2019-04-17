@@ -75,5 +75,17 @@ class Member
     return mapped_results.count()
   end
   
+  def self.premium_members()
+    sql = "SELECT * FROM members WHERE membership_type = 'Premium Membership'"
+    results = SqlRunner.run(sql)
+    return results.map{ |member| Member.new(member) }
+  end
+  
+  def self.all_class_users()
+    sql = "SELECT * FROM members WHERE membership_type != 'Gym Only'"
+    results = SqlRunner.run(sql)
+    return results.map{ |member| Member.new(member) }
+  end
+  
   
 end

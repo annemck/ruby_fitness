@@ -18,6 +18,7 @@
   <select class="" name="membership_type" id="membership-type">
     <option <%= "selected" if @member.membership_type == 'Gym Only' %> value="Gym Only">Gym Only</option>
     <option <%= "selected" if @member.membership_type == 'Gym & Classes' %> value="Gym & Classes">Gym & Classes</option>
+    <option <%= "selected" if @member.membership_type == 'Premium Membership' %> value="Premium Membership">Premium Membership</option>
   </select>
   
   <br>
